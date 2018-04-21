@@ -29,7 +29,8 @@ int main(int argc, char *argv[], char *envp[]) {
   if(getppid() == 6043) {
     srand(time(NULL));
 
-    FILE *fp = fopen(argv[1], "w");
+    //FILE *fp = fopen(argv[1], "w");
+    FILE *fp = fopen("augusto.txt", "w");
 
     int i;
     for(i = 0; i < N; i++) {
@@ -43,9 +44,9 @@ int main(int argc, char *argv[], char *envp[]) {
   pid_t inOrder_pid = toGiveBirth("bubble_sort", argv, envp);
   wait(&inOrder_pid);
 
-  //pid_t reverseOrder_pid = toGiveBirth("selection_sort", argv, envp);
-  //waitpid(reverseOrder_pid);
+  pid_t reverseOrder_pid = toGiveBirth("selection_sort", argv, envp);
+  wait(&reverseOrder_pid);
 
-  printf("Control finished\n");
+  //printf("Control finished\n");
   exit(0);
 }

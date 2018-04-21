@@ -12,7 +12,7 @@ int * getValues(char *filename) {
   }
 
   FILE *fp = fopen(filename, "r");
-  
+
   if(fp == NULL) {
     printf("ERROR\n");
     exit(-1);
@@ -46,14 +46,15 @@ void writeValues(char *filename, int *data) {
 }
 
 int main(int argc, char *argv[], char *envp[]) {
-  int *vector = getValues(argv[1]);
+  //int *vector = getValues(argv[1]);
+  int *vector = getValues("augusto.txt");
 
   int i;
-  for(i = 0; i < N; i++) {
+/*  for(i = 0; i < N; i++) {
     printf("%d ", vector[i]);
   }
   printf("\n");
-
+*/
   int j, swap;
   for(j = N-1; j > 0; j--) {
     for(i = 0; i < j; i++) {
@@ -65,9 +66,10 @@ int main(int argc, char *argv[], char *envp[]) {
     }
   }
 
-  writeValues(argv[1], vector);
+  //writeValues(argv[1], vector);
+  writeValues("augusto.txt", vector);
   free(vector);
-  printf("Bubble finished\n");
+  //printf("Bubble finished\n");
 
   exit(0);
 }
