@@ -46,5 +46,6 @@ int main(int argc, char *argv[], char *envp[]) {
   //pid_t reverseOrder_pid = toGiveBirth("selection_sort", argv, envp);
   //waitpid(reverseOrder_pid);
 
+  printf("Control finished\n");
   exit(0);
 }
