@@ -1,15 +1,10 @@
 #include "lib/lib_so.h"
 
 int main(int argc, char *argv[], char *envp[]) {
-  if(generateFile("augusto.txt")) {
-    printf("Error! Generation of data file not completed.\n");
-    exit(-1);
-  }
 
-  int *vector = getValues("augusto.txt");
+  int *vector = getValues("data.txt");
 
-  int i;
-  int j, swap;
+  int i, j, swap;
   for(j = N-1; j > 0; j--) {
     for(i = 0; i < j; i++) {
       if(vector[i] > vector[i+1]) {
@@ -20,8 +15,9 @@ int main(int argc, char *argv[], char *envp[]) {
     }
   }
 
-  writeValues("augusto.txt", vector);
+  writeValues("data.txt", vector);
   free(vector);
 
+  printf("Process %d finished!\n", getpid());
   exit(0);
 }

@@ -17,6 +17,5 @@ pid_t toGiveBirth(char *child, char **arg1, char **arg2);
 //For manipulates files
 int writeValues(char *filename, int *data);
 int *getValues(char *filename);
-int generateFile(char *filename);
 
 #endif

@@ -1,7 +1,7 @@
 #include "lib/lib_so.h"
 
 int main(int argc, char *argv[], char *envp[]) {
-  int *vector = getValues("augusto.txt");
+  int *vector = getValues("data.txt");
 
   int i, j, pivotPos, swap;
 
@@ -21,8 +21,9 @@ int main(int argc, char *argv[], char *envp[]) {
     }
   }
 
-  writeValues("augusto.txt", vector);
+  writeValues("data.txt", vector);
   free(vector);
 
+  printf("Process %d finished!\n", getpid());
   exit(0);
 }

@@ -54,23 +54,3 @@ int *getValues(char *filename) {
 
   return rtrn;
 }
-
-int generateFile(char *filename) {
-  srand(time(NULL));
-
-  FILE *fp = fopen(filename, "w");
-
-  if(fp == NULL) {
-    return 1;
-  }
-
-  int i;
-  for(i = 0; i < N; i++) {
-    fprintf(fp, "%d ", rand()%LIMIT);
-  }
-
-  fprintf(fp, "\n");
-  fclose(fp);
-
-  return 0;
-}
