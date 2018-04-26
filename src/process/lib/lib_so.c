@@ -16,19 +16,17 @@ pid_t toGiveBirth(char *child, char **arg1, char **arg2) {
 }
 
 int writeValues(char *filename, int *data) {
-  FILE *fp = fopen(filename, "w");
+  int file_descriptor = open(filename, O_WRONLY | O_RDONLY | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
 
-  if(fp == NULL) {
+  if(file_descriptor < 0) {
     return 1;
   }
 
-  int i;
-  for(i = 0; i < N; i++) {
-    fprintf(fp, "%d ", data[i]);
+  if(write(file_descriptor, data, N*sizeof(int)) != N*sizeof(int)) {
+    return 1;
   }
-  fprintf(fp, "\n");
 
-  fclose(fp);
+  close(file_descriptor);
   return 0;
 }
 
@@ -39,18 +37,19 @@ int *getValues(char *filename) {
     return NULL;
   }
 
-  FILE *fp = fopen(filename, "r");
+  int file_descriptor = open(filename, O_RDONLY);
 
-  if(fp == NULL) {
+  if(file_descriptor < 0) {
+    free(rtrn);
     return NULL;
   }
 
-  int i;
-  for(i = 0; i < N; i++) {
-    fscanf(fp, "%d ", &rtrn[i]);
+  if(read(file_descriptor, rtrn, N*sizeof(int)) != N*sizeof(int)) {
+    free(rtrn);
+    return NULL;
   }
 
-  fclose(fp);
+  close(file_descriptor);
 
   return rtrn;
 }
