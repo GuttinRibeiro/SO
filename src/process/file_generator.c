@@ -4,11 +4,10 @@
 #include "lib/lib_so.h"
 
 int main(int argc, char *argv[], char *envp[]) {
-  //FILE *fp = fopen(argv[0], "w");
-  FILE *fp;
-  fp = fopen("data.txt", "w");
 
-  if(fp == NULL) {
+  int *data = (int *)malloc(N*sizeof(int));
+
+  if(data == NULL) {
     exit(-1);
   }
 
@@ -16,12 +15,11 @@ int main(int argc, char *argv[], char *envp[]) {
 
   int i;
   for(i = 0; i < N; i++) {
-    fprintf(fp, "%d ", rand()%LIMIT);
+    data[i] = rand()%LIMIT;
   }
 
-  fprintf(fp, "\n");
-  fclose(fp);
+  writeValues("data.txt", data);
 
   printf("Process %d finished!\n", getpid());
-  return 0;
+  exit(0);
 }

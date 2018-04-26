@@ -1,7 +1,12 @@
 #include "lib/lib_so.h"
 
 int main(int argc, char *argv[], char *envp[]) {
+
   int *vector = getValues("data.txt");
+
+  if(vector == NULL) {
+    exit(-1);
+  }
 
   int i, j, pivotPos, swap;
 

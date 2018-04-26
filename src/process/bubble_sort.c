@@ -3,6 +3,10 @@
 int main(int argc, char *argv[], char *envp[]) {
 
   int *vector = getValues("data.txt");
+  
+  if(vector != NULL) {
+    exit(-1);
+  }
 
   int i, j, swap;
   for(j = N-1; j > 0; j--) {
