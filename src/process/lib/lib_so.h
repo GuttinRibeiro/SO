@@ -12,10 +12,10 @@
 #define N 10
 #define LIMIT 10
 
-//For create a new process
+//Para criar um novo processo:
 pid_t toGiveBirth(char *child, char **arg1, char **arg2);
 
-//For manipulates files
+//Para manipular o arquivo de dados:
 int writeValues(char *filename, int *data);
 int *getValues(char *filename);
 

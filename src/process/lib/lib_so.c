@@ -4,14 +4,14 @@ pid_t toGiveBirth(char *child, char **arg1, char **arg2) {
   pid_t child_pid;
   child_pid = fork();
 
-  //Testing if this is the parent process
+  //Testa se o processo atual é o processo pai:
   if(child_pid != 0) {
     return child_pid;
   }
 
   execve(child, arg1, arg2);
 
-  //If execve returned, something really bad happenend:
+  //Se a função execve retornou, algo ruim aconteceu:
   exit(-1);
 }
 
