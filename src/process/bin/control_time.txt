@@ -1,0 +1,7 @@
+Tempo total (segundos): 0.01
+Tempo em modo kernel (segundos): 0.00
+Tempo em modo usuário (segundos): 0.00
+Uso da CPU: 84%
+Troca de contexto involuntárias:2
+Troca de contexto voluntárias:44
+

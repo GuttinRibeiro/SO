@@ -5,7 +5,7 @@
 
 static char *buffer;
 
-int main(int argc, char *argv[]) {
+int main() {
     int pagesize;
     pagesize = sysconf(_SC_PAGE_SIZE);
     if (pagesize == -1) {
