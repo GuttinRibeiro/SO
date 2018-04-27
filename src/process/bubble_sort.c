@@ -4,7 +4,7 @@ int main(int argc, char *argv[], char *envp[]) {
 
   int *vector = getValues("data.txt");
   
-  if(vector != NULL) {
+  if(vector == NULL) {
     exit(-1);
   }
 

@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 #include <time.h>
 
-#define N 10
+#define N 1000
 #define LIMIT 10
 
 //Para criar um novo processo:
